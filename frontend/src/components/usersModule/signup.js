@@ -1,9 +1,11 @@
 import {useForm} from "react-hook-form";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const API_ENDPOINT = 'http://localhost:3000'
 
 function Signup() {
+    const navigate = useNavigate();
     const {register, handleSubmit} = useForm();
 
     const postData = async (postedData) => {
@@ -21,6 +23,7 @@ function Signup() {
             const {passwordConfirmation, ...restData} = data;
             const token = await postData(restData);
             localStorage.setItem("token", token);
+            navigate('/');
         }
     }
     return (<div style={{

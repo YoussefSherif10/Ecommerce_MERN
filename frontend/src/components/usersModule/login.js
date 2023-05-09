@@ -1,10 +1,12 @@
 import {useForm} from "react-hook-form";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const API_ENDPOINT = 'http://localhost:3000'
 
 function Login() {
     const {register, handleSubmit} = useForm();
+    const navigate = useNavigate();
 
     const postData = async (postedData) => {
         const data = await fetch(`${API_ENDPOINT}/users/login`, {
@@ -20,6 +22,7 @@ function Login() {
         console.log({data})
         const token = await postData(data);
         localStorage.setItem("token", token);
+        navigate('/')
     }
     return (<div style={{
         width: 'fit-content',
