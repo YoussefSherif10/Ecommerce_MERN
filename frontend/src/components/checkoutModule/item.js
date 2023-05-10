@@ -32,26 +32,25 @@ function Item({item}) {
         }
     }
     return (
-        <div
-            style={{width: 'fit-content', display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '16px'}}>
-            <img src={item.image} alt='no image' width='200px' height='200px'/>
-            <div>
-                <h1>{item.title}</h1>
-                <p>{item.description}</p>
+        <div className='card mt-2 shadow-sm p-3 mb-5 bg-white rounded'>
+            <img className='card-img-top' src={item.image} alt='no image' width='150px' height='150px'/>
+            <div className='card-body'>
+                <h1 className='card-title'>{item.title}</h1>
+                <p className='card-text'>{item.description}</p>
                 {count > 0 ? (
-                    <div style={{display: 'flex', gap: '8px'}}>
-                        <button onClick={() => {
+                    <div className='float-end' style={{display: 'flex', gap: '8px'}}>
+                        <button className='btn btn-danger' onClick={() => {
                             AddItemToCart({item, isMinus: true})
                             setCount(prevCount => --prevCount);
                         }}>-</button>
                         <p>{count}</p>
-                        <button onClick={() => {
+                        <button className='btn btn-success' onClick={() => {
                             AddItemToCart({item});
                             setCount(prevCount => ++prevCount);
                         }}>+</button>
                     </div>
                 ) : (
-                    <button onClick={() => {
+                    <button className='btn btn-success float-end' onClick={() => {
                         AddItemToCart({item})
                         setCount(prevCount => ++prevCount);
                     }}>Add item to cart</button>

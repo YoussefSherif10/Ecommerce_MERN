@@ -19,6 +19,7 @@ router.post('/login', async (req, res) => {
         let token = jwt.sign({
             _id: user._id,
             email: user.mail,
+            name: user.name
         }, 'ThisIsSecret', {expiresIn: "1d"});
         return res.status(200).json(token);
     } catch (e){
@@ -35,6 +36,7 @@ router.post('/signup', async (req, res) => {
         let token = jwt.sign({
             _id: user._id,
             email: user.mail,
+            name: user.name
         }, 'ThisIsSecret', {expiresIn: "1d"});
         res.status(200).json(token);
     } catch (e){
