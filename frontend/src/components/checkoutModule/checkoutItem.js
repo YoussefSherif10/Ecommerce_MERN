@@ -7,9 +7,9 @@ const CheckoutItem = ({item, increment, decrement}) => {
             <h1>{item.title}</h1>
             <p>{item.description}</p>
                 <div className='d-flex justify-content-around'>
-            <button className='btn btn-danger' onClick={() => decrement(item.id)}>-</button>
+            <button className='btn btn-danger' onClick={() => decrement(item._id)}>-</button>
             <h3>{item.count}</h3>
-            <button className='btn btn-success' onClick={() => increment(item.id)}>+</button>
+            <button className='btn btn-success' onClick={() => increment(item._id)}>+</button>
                 </div>
             </div>
         </li>
