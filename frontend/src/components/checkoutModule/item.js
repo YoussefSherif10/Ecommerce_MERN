@@ -32,8 +32,8 @@ function Item({item}) {
         }
     }
     return (
-        <div className='card mt-2 shadow-sm p-3 mb-5 bg-white rounded'>
-            <img className='card-img-top' src={item.image} alt='no image' width='150px' height='150px'/>
+        <div className='card m-2 shadow-sm p-3 mb-5 bg-white rounded col-6 col-md-3'>
+            <img className='card-img-top' src={item.image} alt='no image' width='150px' height='200px'/>
             <div className='card-body'>
                 <h1 className='card-title'>{item.title}</h1>
                 <p className='card-text'>{item.description}</p>
